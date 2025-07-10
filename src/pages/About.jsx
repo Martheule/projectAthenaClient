@@ -8,9 +8,7 @@ const About = () => {
         />
         <div>
           <h1 className="text-5xl font-bold">About</h1>
-          <p className="py-6">This is built by Ciro, say hi!</p>
-          <p className="py-6">cirochen0406@gmail.com</p>
-          <button className="btn btn-secondary">Copy email</button>
+          <p className="py-6">This is built by team Athena, say hi!</p>
         </div>
       </div>
     </div>
