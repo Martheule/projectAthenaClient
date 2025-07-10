@@ -1,5 +1,10 @@
+import FetchEvents from "./api/FetchEvents";
 const App = () => {
-  return <div>Hello World!</div>;
+  return (
+    <div>
+      <FetchEvents />
+    </div>
+  );
 };
 
 export default App;
