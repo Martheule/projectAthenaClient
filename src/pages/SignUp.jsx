@@ -69,7 +69,7 @@ const SignUp = () => {
                 placeholder="Confirm Password"
               />
 
-              <button type="submit" className="btn btn-neutral mt-2">
+              <button type="submit" className="btn bg-blue-800 mt-2">
                 Sign Up
               </button>
               <div className="text-center">
