@@ -36,7 +36,7 @@ const SignUp = () => {
           "url(https://images.pexels.com/photos/566862/pexels-photo-566862.jpeg?_gl=1*19jeblz*_ga*OTI2ODEzMDQ2LjE3NDc5OTgyODQ.*_ga_8JE65Q40S6*czE3NTIzMTY5OTkkbzEwJGcxJHQxNzUyMzE3Mjg4JGo1NSRsMCRoMA..)",
       }}
     >
-      <div className="hero-content flex-col mb-[8rem]">
+      <div className="hero-content flex-col mb-[12rem]">
         <div className="text-center">
           <h1 className="text-6xl font-bold">Sign Up now!</h1>
           <p className="py-8 text-lg">
