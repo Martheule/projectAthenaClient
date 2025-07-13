@@ -1,9 +1,12 @@
 import { useAuth } from "../context/AuthContext";
-import { Navigate, Outlet } from "react-router";
+import { useNavigate, Outlet } from "react-router";
+import { useEffect } from "react";
 
-function IsAuth() {
+const IsAuth = () => {
+  const navigate = useNavigate();
   const { isAuth } = useAuth();
-  return isAuth ? <Outlet /> : <Navigate to="/login" />;
-}
+
+  return isAuth ? <Outlet /> : <navigate to="/login" />;
+};
 
 export default IsAuth;
