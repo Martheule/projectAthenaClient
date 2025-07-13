@@ -1,5 +1,5 @@
-import Hero from "../Components/Hero";
-import EventList from "../Components/EventList";
+import Hero from "../components/Hero";
+import EventList from "../components/EventList";
 
 const Home = () => {
   return (
