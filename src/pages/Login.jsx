@@ -1,4 +1,4 @@
-import UnicornScene from "unicornstudio-react";
+// import UnicornScene from "unicornstudio-react";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
@@ -47,14 +47,25 @@ function Login() {
 
   return (
     <div>
-      <div className="absolute  w-full min-h-screen z-0">
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-100 z-0"
+      >
+        <source src="/bg_video1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      {/* <div className="absolute  w-full min-h-screen z-0">
         <div className="absolute  w-full min-h-screen border-b-66 border-[#ffffff] z-10"></div>
         <UnicornScene
           // projectId="sKE07ghh4yvYCU55xEYB"
           projectId="XyC7OwYN00mwuEqwYDOW"
           className="absolute w-full min-h-screen z-0"
         />
-      </div>
+      </div> */}
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content w-xl flex-col gap-8 justify-center">
           <div className="text-center">
