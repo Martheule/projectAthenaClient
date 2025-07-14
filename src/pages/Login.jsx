@@ -45,7 +45,7 @@ function Login() {
       localStorage.setItem("loginSuccess", "true");
       setTimeout(() => {
         navigate("/");
-      }, 1500);
+      }, 1000);
     } catch (error) {
       console.error("Login failed:", error);
     }
