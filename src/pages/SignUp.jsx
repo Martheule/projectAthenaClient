@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import UnicornScene from "unicornstudio-react";
+import { useAuth } from "../context/AuthContext";
 
 const SignUp = () => {
+  const { setIsAuth, setToken, setUser } = useAuth();
+  const navigate = useNavigate();
+
   const submitAction = async (formData) => {
     const email = formData.get("email");
     const password = formData.get("password");
@@ -24,6 +28,25 @@ const SignUp = () => {
             "Content-Type": "application/json",
           },
         });
+
+        if (res.ok) {
+          const response = await fetch("http://localhost:3001/api/auth/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+          });
+
+          const result = await response.json();
+          setToken(result.token);
+          setUser(result.user);
+          setIsAuth(true);
+          localStorage.setItem("token", result.token);
+          localStorage.setItem("loginSuccess", "true");
+
+          navigate("/");
+        }
       } catch (error) {
         console.log(error);
       }
@@ -39,47 +62,54 @@ const SignUp = () => {
           className="absolute w-full min-h-screen z-0"
         />
       </div>
-      <div className="hero-content flex-col mb-[12rem]">
+      <div className="hero-content flex-col mb-12 bg-slate-900/90 p-12 rounded-xl">
         <div className="text-center">
-          <h1 className="text-6xl font-bold">Sign Up now!</h1>
-          <p className="py-8 text-lg">
-            Create a user profile to create events and organize your meetings
+          <h1 className="text-6xl font-semibold">Sign Up now!</h1>
+          <p className="pb-4 pt-8 text-lg">
+            Create a user profile to plan events and organize your meetings
             <br></br>
-            in one place. Everythin just one click away!
+            in one place. Everything just one click away!
           </p>
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
-            <form action={submitAction} className="fieldset gap-8 p-4">
+            <form
+              action={submitAction}
+              className="fieldset text-white gap-8 p-4"
+            >
               <input
                 type="text"
                 name="name"
-                className="input"
+                className="input font-semibold"
                 placeholder="Name"
+                required
               />
 
               <input
                 type="email"
                 name="email"
-                className="input"
+                className="input font-semibold"
                 placeholder="Email"
+                required
               />
 
               <input
                 type="password"
                 name="password"
-                className="input"
+                className="input font-semibold"
                 placeholder="Password"
+                required
               />
 
               <input
                 type="password"
                 name="confirm-password"
-                className="input"
+                className="input font-semibold"
                 placeholder="Confirm Password"
+                required
               />
 
-              <button type="submit" className="btn bg-blue-800 mt-2">
+              <button type="submit" className="btn btn-neutral mt-4">
                 Sign Up
               </button>
               <div className="text-center">
