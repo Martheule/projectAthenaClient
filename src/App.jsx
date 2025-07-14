@@ -10,7 +10,6 @@ import EventList from "./components/EventList";
 import ShowEventList from "./pages/ShowEventList";
 import CreateEvent from "./pages/CreateEvent";
 import About from "./pages/About";
-S;
 
 const App = () => {
   return (
