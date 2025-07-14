@@ -32,7 +32,7 @@ const EventDetails = () => {
           }
         );
         const response = await res.json();
-        setBgImage(response.results[0].urls.regular);
+        setBgImage(response.results[0].urls.full);
       } catch (error) {
         console.log(error);
       }
@@ -46,7 +46,7 @@ const EventDetails = () => {
       className="hero bg-base-200 min-h-screen"
       style={{
         backgroundImage: `url(${bgImage})`,
-        backgroundColor: "rgba(87, 84, 232, 50%)",
+        backgroundColor: "rgba(87, 84, 232, 15%)",
         backgroundBlendMode: "overlay",
       }}
     >
