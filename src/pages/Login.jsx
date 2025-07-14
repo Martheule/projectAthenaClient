@@ -1,6 +1,5 @@
 import UnicornScene from "unicornstudio-react";
 import { useNavigate } from "react-router";
-import { useEffect } from "react";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
@@ -43,7 +42,10 @@ function Login() {
       setIsAuth(true);
       console.log(result);
       localStorage.setItem("token", result.token);
-      navigate("/auth/showeventlist");
+      localStorage.setItem("loginSuccess", "true");
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
     } catch (error) {
       console.error("Login failed:", error);
     }
@@ -51,18 +53,18 @@ function Login() {
 
   return (
     <div>
-      {/* <div className="absolute  w-full min-h-screen z-0">
-        <div className="absolute  w-full min-h-screen border-b-70 border-[#5901f8] z-10"></div>
+      <div className="absolute  w-full min-h-screen z-0">
+        <div className="absolute  w-full min-h-screen border-b-66 border-[#ffffff] z-10"></div>
         <UnicornScene
           // projectId="sKE07ghh4yvYCU55xEYB"
           projectId="XyC7OwYN00mwuEqwYDOW"
           className="absolute w-full min-h-screen z-0"
         />
-      </div> */}
+      </div>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content w-xl flex-col gap-8 justify-center">
           <div className="text-center">
-            <h1 className="text-4xl font-medium">Login now!</h1>
+            <h1 className="text-4xl text-white font-medium">Login now!</h1>
           </div>
 
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

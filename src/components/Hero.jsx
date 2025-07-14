@@ -1,11 +1,23 @@
 import { useNavigate } from "react-router";
+import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import WeekDay from "./WeekDay";
+import toast, { Toaster } from "react-hot-toast";
+
 const Hero = () => {
   const navigate = useNavigate();
   const { isAuth } = useAuth();
+  useEffect(() => {
+    const loginSuccess = localStorage.getItem("loginSuccess");
+
+    if (loginSuccess === "true") {
+      toast("✅ Login success!");
+      localStorage.removeItem("loginSuccess"); // Clean up
+    }
+  }, []);
   return isAuth ? (
     <section className="relative h-screen flex flex-col justify-center px-8 text-white">
+      <Toaster />
       {/* Background Image */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=80')] bg-cover bg-center"></div>
       {/* Overlay */}

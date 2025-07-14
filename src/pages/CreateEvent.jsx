@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router";
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 const CreateEvent = () => {
   const navigate = useNavigate();
-
   const maxLength = 200;
   const token = localStorage.getItem("token");
+  const notify = () =>
+    toast("✅ Congratulation! Event is successfully created!"); //This is successful toast
 
   const [eventData, setEventData] = useState({
     title: "",
@@ -142,9 +143,10 @@ const CreateEvent = () => {
           className="input border-none w-auto"
           placeholder="longitude here"
         />
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary" onClick={notify}>
           Post now
         </button>
+        <Toaster />
       </form>
     </div>
   );
