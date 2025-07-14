@@ -2,10 +2,11 @@
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router";
 
 function Login() {
   const navigate = useNavigate();
-  const { setIsAuth, setToken, setUser } = useAuth();
+  const { setIsAuth, setToken, setUser, login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,11 +34,12 @@ function Login() {
       }
 
       const result = await response.json();
-      setToken(result.token);
-      setUser(result.user);
-      setIsAuth(true);
-      console.log(result);
-      localStorage.setItem("token", result.token);
+      login(result.token, result.user);
+      // setToken(result.token);
+      // setUser(result.user);
+      // setIsAuth(true);
+      // localStorage.setItem("token", result.token);
+      // console.log(result);
       localStorage.setItem("loginSuccess", "true");
       navigate("/");
     } catch (error) {
@@ -101,6 +103,17 @@ function Login() {
                 <button type="submit" className="btn btn-neutral mt-4">
                   Login
                 </button>
+                <p className="text-base text-center">
+                  Don't have an account?{" "}
+                  {
+                    <Link
+                      to="/signup"
+                      className="link link-hover text-blue-800"
+                    >
+                      Sign up
+                    </Link>
+                  }
+                </p>
               </form>
             </div>
           </div>
