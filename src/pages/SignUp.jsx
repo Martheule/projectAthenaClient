@@ -55,17 +55,28 @@ const SignUp = () => {
 
   return (
     <div className="hero bg-base-200 min-h-screen">
-      <div className="absolute  w-full min-h-screen z-0">
+      {/* <div className="absolute  w-full min-h-screen z-0">
         <div className="absolute  w-full min-h-screen border-b-66 border-[#FFFFFF] z-10"></div>
         <UnicornScene
           projectId="sKE07ghh4yvYCU55xEYB"
           className="absolute w-full min-h-screen z-0"
         />
-      </div>
-      <div className="hero-content flex-col mb-12 bg-slate-900/90 p-12 rounded-xl">
+      </div> */}
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full min-h-screen object-cover opacity-100 z-0"
+      >
+        <source src="/bg_video1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="hero-content flex-col mb-12 p-12 rounded-xl">
         <div className="text-center">
-          <h1 className="text-6xl font-semibold">Sign Up now!</h1>
-          <p className="pb-4 pt-8 text-lg">
+          <h1 className="text-5xl font-semibold text-white">Sign Up now!</h1>
+          <p className="pb-4 pt-8 text-lg text-white">
             Create a user profile to plan events and organize your meetings
             <br></br>
             in one place. Everything just one click away!

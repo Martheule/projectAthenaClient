@@ -53,7 +53,7 @@ function Login() {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-100 z-0"
+        className="absolute inset-0 w-full min-h-screen object-cover opacity-100 z-0"
       >
         <source src="/bg_video1.mp4" type="video/mp4" />
         Your browser does not support the video tag.
