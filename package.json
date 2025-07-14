@@ -12,7 +12,8 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "date-fns": "^4.1.0",
-    "motion": "^12.23.0",
+    "motion": "^12.23.5",
+    "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-confetti": "^6.4.0",
     "react-dom": "^19.1.0",

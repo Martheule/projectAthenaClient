@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import EventCard from "../components/EventCard";
 import { useAuth } from "../context/AuthContext";
+import SimplePageWrapper from "../components/PageWrapper";
+
 const ShowEventList = () => {
   const { isAuth } = useAuth();
   const [events, setEvents] = useState([]);
@@ -34,18 +36,19 @@ const ShowEventList = () => {
   }, []);
 
   return (
-    <div className="w-full">
-      <div className="w-full mx-auto md:w-2/3 text-center flex justify-center py-24">
-        <h1 className="text-5xl mb-6">
-          Introducing today's Most Interesting Events.
-        </h1>
-      </div>
-      <div className="p-4 w-full flex flex-wrap gap-4 justify-center">
-        {events.map((event) => (
-          <EventCard key={event.id} event={event} />
-        ))}
-      </div>
-      {/* {isAuth ? (
+    <SimplePageWrapper pageKey="showeventlist">
+      <div className="w-full">
+        <div className="w-full mx-auto md:w-2/3 text-center flex justify-center py-24">
+          <h1 className="text-5xl mb-6">
+            Introducing today's Most Interesting Events.
+          </h1>
+        </div>
+        <div className="p-4 w-full flex flex-wrap gap-4 justify-center">
+          {events.map((event) => (
+            <EventCard key={event.id} event={event} />
+          ))}
+        </div>
+        {/* {isAuth ? (
         <div className="p-4 w-full flex flex-wrap gap-4 justify-center">
           {events.map((event) => (
             <EventCard key={event.id} event={event} />
@@ -56,7 +59,8 @@ const ShowEventList = () => {
           You're not authenticated. Please login to see the event information.
         </p>
       )} */}
-    </div>
+      </div>
+    </SimplePageWrapper>
   );
 };
 
