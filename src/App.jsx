@@ -20,6 +20,8 @@ const App = () => {
         <Route path="/auth" element={<IsAuth />}>
           {/* <Route path="eventlist" element={<EventList />} /> */}
           <Route path="showeventlist" element={<ShowEventList />} />
+          <Route path="event/:id" element={<EventDetails />} />
+
           <Route path="addevent" element={<CreateEvent />} />
         </Route>
       </Route>

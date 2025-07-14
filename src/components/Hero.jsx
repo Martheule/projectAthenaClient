@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Hero = () => {
   const navigate = useNavigate();
-  const { isAuth } = useAuth();
+  const { isAuth, user } = useAuth();
   useEffect(() => {
     const loginSuccess = localStorage.getItem("loginSuccess");
 
@@ -24,7 +24,9 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/40"></div>
       {/* Main Content */}
       <div className="relative z-10 max-w-xl text-center mx-auto">
-        <h1 className="text-5xl md:text-6xl font-bold mb-4">Welcome, Ciro</h1>
+        <h1 className="text-5xl md:text-6xl font-bold mb-4">
+          Welcome, {user.name}
+        </h1>
         <p className="text-lg mb-8">Check your events.</p>
 
         <button className="bg-white text-black px-6 py-3 rounded-full hover:bg-gray-200 transition">
