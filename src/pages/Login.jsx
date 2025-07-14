@@ -5,23 +5,16 @@ import { useAuth } from "../context/AuthContext";
 
 function Login() {
   const navigate = useNavigate();
-  const { setIsAuth, setToken, setUser, isAuth } = useAuth();
-
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (event) => {
-    event.preventDefault();
-
-    // Handle input changes if needed
-    const { name, value } = event.target;
-    setData({ ...data, [name]: value });
-  };
+  const { setIsAuth, setToken, setUser } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const email = formData.get("email");
+    const password = formData.get("password");
+
     try {
       // Simulate an API call for login
       const response = await fetch("http://localhost:3001/api/auth/login", {
@@ -29,7 +22,10 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          email,
+          password,
+        }),
       });
 
       if (!response.ok) {
@@ -43,9 +39,7 @@ function Login() {
       console.log(result);
       localStorage.setItem("token", result.token);
       localStorage.setItem("loginSuccess", "true");
-      setTimeout(() => {
-        navigate("/");
-      }, 1000);
+      navigate("/");
     } catch (error) {
       console.error("Login failed:", error);
     }
@@ -73,8 +67,6 @@ function Login() {
                 <div className="flex flex-col w-full">
                   <label htmlFor="email">Email</label>
                   <input
-                    onChange={handleChange}
-                    value={data.email}
                     type="email"
                     id="email"
                     name="email"
@@ -85,8 +77,6 @@ function Login() {
                 <div className="flex flex-col w-full">
                   <label htmlFor="password">Password</label>
                   <input
-                    onChange={handleChange}
-                    value={data.password}
                     type="password"
                     id="password"
                     name="password"
