@@ -1,6 +1,20 @@
 import { Link } from "react-router";
+import { useParams, useLocation } from "react-router";
 
 const EventDetails = () => {
+  let params = useParams();
+  const {
+    state: {
+      title,
+      description,
+      date,
+      location,
+      createdAt,
+      latitude,
+      longitude,
+    },
+  } = useLocation();
+
   return (
     <div
       className="hero bg-base-200 min-h-screen"
@@ -18,7 +32,7 @@ const EventDetails = () => {
         </figure>
         <div className="card-body flex flex-col justify-center items-center border-solid border-4 border-e-indigo-600  border-b-amber-600 border-t-indigo-600 border-l-fuchsia-900">
           <h2 className="card-title text-center text-6xl  mb-8 font-bold">
-            Event Title
+            {title}
           </h2>
 
           <div className="w-[75%] h-[70%] p-8 bg-black rounded-xl border-solid border-2 border-e-indigo-600  border-b-amber-600 border-t-indigo-600 border-l-fuchsia-900">
@@ -27,7 +41,7 @@ const EventDetails = () => {
                 <p className="text-2xl font-semibold">When?</p>
               </div>
               <div>
-                <p className="text-2xl font-semibold">Event Date</p>
+                <p className="text-2xl font-semibold">{date.split("T")[0]}</p>
               </div>
             </div>
             <div className="flex justify-around align-center my-8">
@@ -35,7 +49,7 @@ const EventDetails = () => {
                 <p className="text-2xl font-semibold">Location?</p>
               </div>
               <div>
-                <p className="text-2xl font-semibold">Event Location</p>
+                <p className="text-2xl font-semibold">{location}</p>
               </div>
             </div>
             <div className="flex justify-around align-center my-8">
@@ -43,7 +57,7 @@ const EventDetails = () => {
                 <p className="text-2xl font-semibold">Description?</p>
               </div>
               <div>
-                <p className="text-2xl font-semibold">Event description</p>
+                <p className="text-2xl font-semibold">{description}</p>
               </div>
             </div>
           </div>

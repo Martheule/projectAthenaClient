@@ -1,10 +1,11 @@
 import { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router";
 
 const AuthContext = createContext();
 
-const useAuth = () => useContext(AuthContext);
-
+const useAuth = () => useContext(AuthContext); //make the useContext hook connect with the created context.
 const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token") || null);
@@ -21,9 +22,10 @@ const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    setToken(null);
     localStorage.removeItem("token");
+    setToken(null);
     setIsAuth(false);
+    navigate("/login");
   };
   return (
     <AuthContext.Provider

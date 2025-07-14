@@ -7,6 +7,7 @@ const SignUp = () => {
     const email = formData.get("email");
     const password = formData.get("password");
     const confirmedPassword = formData.get("confirm-password");
+    const name = formData.get("name");
 
     if (password !== confirmedPassword) {
       alert("passworts don't match");
@@ -18,7 +19,7 @@ const SignUp = () => {
       try {
         const res = await fetch("http://localhost:3001/api/users", {
           method: "POST",
-          body: JSON.stringify({ email, password }),
+          body: JSON.stringify({ email, password, name }),
           headers: {
             "Content-Type": "application/json",
           },
@@ -50,6 +51,13 @@ const SignUp = () => {
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
             <form action={submitAction} className="fieldset gap-8 p-4">
+              <input
+                type="text"
+                name="name"
+                className="input"
+                placeholder="Name"
+              />
+
               <input
                 type="email"
                 name="email"
