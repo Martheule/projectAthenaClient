@@ -4,7 +4,7 @@ const SignUp = () => {
       <form>
         <ul>
           <li>
-            <label>Hello</label>
+            <label>Sign up page</label>
             <input></input>
           </li>
           <li>
