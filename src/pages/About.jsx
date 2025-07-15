@@ -35,7 +35,7 @@ const About = () => {
       </div> */}
       <div>
         <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center bg-[url(https://images.pexels.com/photos/31076298/pexels-photo-31076298.jpeg)] bg-cover pt-16">
-          <h1 className="text-6xl font-semibold mb-10 text-center">
+          <h1 className="text-6xl font-semibold mb-10 text-center text-white">
             Meet Our Team
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl ">
@@ -49,12 +49,8 @@ const About = () => {
                   alt={member.name}
                   className="w-32 h-32 rounded-full object-cover mb-4 border-4 border-indigo-500"
                 />
-                <h2 className="text-xl font-semibold text-white">
-                  {member.name}
-                </h2>
-                <p className="text-md font-regular text-white">
-                  {member.description}
-                </p>
+                <h2 className="text-xl font-semibold">{member.name}</h2>
+                <p className="text-md font-regular">{member.description}</p>
               </div>
             ))}
           </div>

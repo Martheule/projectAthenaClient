@@ -51,7 +51,9 @@ Utils
 
 ### Things that wanna improve in the future
 
-| Tasks                   | Description                                                                                   | aspect | Status |
-| :---------------------- | :-------------------------------------------------------------------------------------------- | :----- | ------ |
-| DarkTheme               | Add a Darktheme, make the visual more appealling                                              | UI     | To-do  |
-| More Toast notification | When important action happened, for instance, create event and so on, show toast notification | UX     | To-do  |
+| Tasks                                  | Description                                                                                                                                      | aspect | Status |
+| :------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- | :----- | ------ |
+| DarkTheme                              | Add a Darktheme, make the visual more appealling                                                                                                 | UI     | To-do  |
+| More Toast notification                | When important action happened, for instance, create event and so on, show toast notification                                                    | UX     | To-do  |
+| Responsiveness                         | How the interfaces look on mobile, still need further improvements                                                                               | UX/UI  | To-do  |
+| Show/hide tabs based on Auth condition | Would be nice to show/hide certain pages based on Auth condition, for instance, the "show event page " can be hidden, when user is not logged in | UX/UI  | To-do  |
