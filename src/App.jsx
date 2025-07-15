@@ -1,5 +1,5 @@
 import FetchEvents from "./api/FetchEvents";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
 import MainLayout from "./layouts/MainLayout";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
@@ -9,16 +9,17 @@ import EventDetails from "./pages/EventDetails";
 import EventList from "./components/EventList";
 import ShowEventList from "./pages/ShowEventList";
 import CreateEvent from "./pages/CreateEvent";
+import About from "./pages/About";
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/auth" element={<IsAuth />}>
-          {/* <Route path="eventlist" element={<EventList />} /> */}
           <Route path="showeventlist" element={<ShowEventList />} />
           <Route path="event/:id" element={<EventDetails />} />
 

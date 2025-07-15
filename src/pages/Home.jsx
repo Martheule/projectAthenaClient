@@ -1,10 +1,12 @@
 import Hero from "../components/Hero";
-
+import SimplePageWrapper from "../components/PageWrapper";
 const Home = () => {
   return (
-    <div>
-      <Hero />
-    </div>
+    <SimplePageWrapper pageKey="/">
+      <div>
+        <Hero />
+      </div>
+    </SimplePageWrapper>
   );
 };
 

@@ -33,6 +33,7 @@ Utils
 | FR007   | Run Local Events API             | Clone, install and run the provided Events API locally for development.                                                  | Team            |
 | FR008   | Home Page – Event List           | Fetch events (GET /api/events) and render them as cards sorted chronologically.                                          | Martha          |
 | FR009   | Event Card Navigation            | Clicking an event card navigates to /events/:id with React Router.                                                       | Martha          |
+| FR010   | Event Details Page               | Fetch and display full event data by ID (GET /api/events/:id).                                                           | Cornelia        |
 | FR011   | Sign-Up Page                     | Render registration form; send POST /api/users; on success redirect to Sign-In.                                          | Cornelia        |
 | FR012   | Sign-In Page                     | Render login form; send POST /api/auth/login; on success store API token and redirect to Home.                           | Ciro            |
 | FR013   | API Key Persistence              | Store/retrieve the user’s API token in localStorage.                                                                     | Ciro            |
@@ -42,15 +43,15 @@ Utils
 
 ## Pending
 
-| Request | Main                      | Description                                                                     | Done by  |
-| :------ | :------------------------ | :------------------------------------------------------------------------------ | -------- |
-| FR010   | Event Details Page        | Fetch and display full event data by ID (GET /api/events/:id).                  | Cornelia |
-| FR017   | Error Handling & Feedback | Gracefully display API or network errors (e.g., auth failure, 404) to the user. | Team     |
-| FR018   | Responsive Design         | Ensure the UI remains usable across mobile and desktop break-points.            | Team     |
-| FR019   | Static-Site Deployment    | Build the React app and deploy the static output to Render.                     | Team     |
+| Request | Main                      | Description                                                                     | Done by |
+| :------ | :------------------------ | :------------------------------------------------------------------------------ | ------- |
+| FR017   | Error Handling & Feedback | Gracefully display API or network errors (e.g., auth failure, 404) to the user. | Team    |
+| FR018   | Responsive Design         | Ensure the UI remains usable across mobile and desktop break-points.            | Team    |
+| FR019   | Static-Site Deployment    | Build the React app and deploy the static output to Render.                     | Team    |
 
-### Empty table
+### Things that wanna improve in the future
 
-| Request | Main | Description | Done by |
-| :------ | :--- | :---------- | ------- |
-|         |      |             |         |
+| Tasks                   | Description                                                                                   | aspect | Status |
+| :---------------------- | :-------------------------------------------------------------------------------------------- | :----- | ------ |
+| DarkTheme               | Add a Darktheme, make the visual more appealling                                              | UI     | To-do  |
+| More Toast notification | When important action happened, for instance, create event and so on, show toast notification | UX     | To-do  |

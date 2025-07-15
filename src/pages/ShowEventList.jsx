@@ -1,62 +1,58 @@
 import { useEffect, useState } from "react";
 import EventCard from "../components/EventCard";
 import { useAuth } from "../context/AuthContext";
+import SimplePageWrapper from "../components/PageWrapper";
+import { useNavigate } from "react-router";
+
 const ShowEventList = () => {
+  const navigate = useNavigate();
   const { isAuth } = useAuth();
   const [events, setEvents] = useState([]);
-  const baseUrl = "http://localhost:3001/api/events"; //Fetch from the seed.js
 
+  useEffect(() => {
+    if (!isAuth) {
+      navigate("/login");
+    }
+  }, [isAuth]);
   //main fetch function
   useEffect(() => {
-    const controller = new AbortController();
+    if (!isAuth) return;
+    fetch("http://localhost:3001/api/events") //Fetch from the Swagger API
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
 
-    const fetchEvents = async () => {
-      try {
-        const response = await fetch(baseUrl, {
-          signal: controller.signal, //We connect the fetch req to the controller above
-        });
-
-        if (!response.ok) {
-          throw new Error("Something went wrong!!!");
-        }
-        const data = await response.json();
-        setEvents(data.results); //set fetched events to useState;
-        console.log(data.results);
-      } catch (error) {
-        console.error("Fetch error:", error);
-      }
-    };
-    fetchEvents(); //Yes, this time you rememberd to call the fucking function,well done Ciro.
-
-    return () => {
-      controller.abort();
-    };
-  }, []);
+        const sorted = data.results.sort(
+          (a, b) => new Date(a.date) - new Date(b.date)
+        );
+        // setEvents(sorted);
+        setEvents(data.results);
+      })
+      .catch((err) => console.error("Failed to fetch events:", err));
+  }, [isAuth]);
 
   return (
-    <div className="w-full">
-      <div className="w-full mx-auto md:w-2/3 text-center flex justify-center py-24">
-        <h1 className="text-5xl mb-6">
-          Introducing today's Most Interesting Events.
-        </h1>
-      </div>
-      <div className="p-4 w-full flex flex-wrap gap-4 justify-center">
-        {events.map((event) => (
-          <EventCard key={event.id} event={event} />
-        ))}
-      </div>
-      {/* {isAuth ? (
-        <div className="p-4 w-full flex flex-wrap gap-4 justify-center">
-          {events.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
+    <SimplePageWrapper pageKey="showeventlist">
+      <div
+        className="hero min-h-screen"
+        style={{
+          backgroundImage:
+            "url(https://images.unsplash.com/photo-1468413253725-0d5181091126?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+        }}
+      >
+        <div className="hero-overlay"></div>
+        <div className="hero-content flex flex-col text-neutral-content text-center">
+          <div className="max-w-lg">
+            <h1 className="mb-5 text-5xl font-bold">Recommended Events</h1>
+          </div>
+          <div className="hero-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+            {events.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
         </div>
-      ) : (
-        <p className="text-3xl mb-6">
-          You're not authenticated. Please login to see the event information.
-        </p>
-      )} */}
-    </div>
+      </div>
+    </SimplePageWrapper>
   );
 };
 

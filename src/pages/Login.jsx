@@ -1,11 +1,11 @@
-import UnicornScene from "unicornstudio-react";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router";
 
 function Login() {
   const navigate = useNavigate();
-  const { setIsAuth, setToken, setUser } = useAuth();
+  const { setIsAuth, setToken, setUser, login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,11 +33,12 @@ function Login() {
       }
 
       const result = await response.json();
-      setToken(result.token);
-      setUser(result.user);
-      setIsAuth(true);
-      console.log(result);
-      localStorage.setItem("token", result.token);
+      login(result.token, result.user);
+      // setToken(result.token);
+      // setUser(result.user);
+      // setIsAuth(true);
+      // localStorage.setItem("token", result.token);
+      // console.log(result);
       localStorage.setItem("loginSuccess", "true");
       navigate("/");
     } catch (error) {
@@ -47,14 +48,25 @@ function Login() {
 
   return (
     <div>
-      <div className="absolute  w-full min-h-screen z-0">
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-100 z-0"
+      >
+        <source src="/bg_video1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      {/* <div className="absolute  w-full min-h-screen z-0">
         <div className="absolute  w-full min-h-screen border-b-66 border-[#ffffff] z-10"></div>
         <UnicornScene
           // projectId="sKE07ghh4yvYCU55xEYB"
           projectId="XyC7OwYN00mwuEqwYDOW"
           className="absolute w-full min-h-screen z-0"
         />
-      </div>
+      </div> */}
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content w-xl flex-col gap-8 justify-center">
           <div className="text-center">
@@ -90,6 +102,17 @@ function Login() {
                 <button type="submit" className="btn btn-neutral mt-4">
                   Login
                 </button>
+                <p className="text-base text-center">
+                  Don't have an account?{" "}
+                  {
+                    <Link
+                      to="/signup"
+                      className="link link-hover text-blue-800"
+                    >
+                      Sign up
+                    </Link>
+                  }
+                </p>
               </form>
             </div>
           </div>
