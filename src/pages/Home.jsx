@@ -1,12 +1,12 @@
 import Hero from "../components/Hero";
-import EventList from "../components/EventList";
-
+import SimplePageWrapper from "../components/PageWrapper";
 const Home = () => {
   return (
-    <div>
-      <Hero />
-      <EventList />
-    </div>
+    <SimplePageWrapper pageKey="/">
+      <div>
+        <Hero />
+      </div>
+    </SimplePageWrapper>
   );
 };
 

@@ -1,0 +1,44 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+
+const EventList = () => {
+  const [events, setEvents] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch("http://localhost:3001/api/events")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        // Sort events by date (oldest to newest)
+        //const sorted = [...data].sort((a, b) => new Date(a.date) - new Date(b.date));
+        const sorted = data.results.sort((a, b) => new Date(a.date) - new Date(b.date));
+        setEvents(sorted);
+      })
+      .catch((err) => console.error("Failed to fetch events:", err));
+  }, []);
+
+  const handleCardClick = (id) => {
+    navigate(`/events/${id}`);
+  };
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+      {events.map((event) => (
+        <div
+          key={event.id}
+          onClick={() => handleCardClick(event.id)}
+          className="card bg-base-200 shadow-xl cursor-pointer transition hover:shadow-2xl hover:brightness-410"
+        >
+           <div className="card-body p-[10%]">
+          <h2 className="text-xl font-bold">{event.title}</h2>
+          <p className="text-gray-500">{new Date(event.date).toLocaleDateString()}</p>
+          <p className="text-sm text-gray-700 mt-2">{event.description}</p>
+        </div>
+            </div>
+      ))}
+    </div>
+  );
+};
+
+export default EventList;
