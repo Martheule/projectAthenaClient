@@ -37,7 +37,7 @@ const Hero = () => {
             Welcome, {user.name}
           </h1>
           <p className="text-lg mb-8">Check your events.</p>
-          <Link className="btn btn-ghost " to="/auth/addevent">
+          <Link className="btn btn-soft " to="/auth/addevent">
             Create Event
           </Link>
         </div>
