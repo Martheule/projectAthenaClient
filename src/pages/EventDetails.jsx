@@ -71,7 +71,7 @@ const EventDetails = () => {
           center={[latitude, longitude]}
           zoom={16}
           scrollWheelZoom={false}
-          className="h-[300px] w-full"
+          className="h-[300px] w-full rounded-lg"
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

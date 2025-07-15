@@ -5,17 +5,17 @@ const About = () => {
     {
       name: "Ciro Chen",
       image: "Ciro.png", // Replace with actual image path
-      description: "blabalbal",
+      description: "Animation Enthusiast",
     },
     {
       name: "Conni",
       image: "Conni.png",
-      description: "blabalbal",
+      description: "Card Detailist",
     },
     {
       name: "Martha",
       image: "Martha.png",
-      description: "blabalbal",
+      description: "Events Coordinator",
     },
   ];
 
@@ -34,25 +34,25 @@ const About = () => {
         </div>
       </div> */}
       <div>
-        <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
-          <h1 className="text-4xl font-bold mb-10 text-center">
+        <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center bg-[url(https://images.pexels.com/photos/31076298/pexels-photo-31076298.jpeg)] bg-cover pt-16">
+          <h1 className="text-6xl font-semibold mb-10 text-center">
             Meet Our Team
           </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl ">
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center transition-transform hover:scale-105"
+                className="bg-base-100 rounded-2xl shadow-lg p-6 flex flex-col items-center transition-transform hover:scale-105"
               >
                 <img
                   src={member.image}
                   alt={member.name}
                   className="w-32 h-32 rounded-full object-cover mb-4 border-4 border-indigo-500"
                 />
-                <h2 className="text-xl font-semibold text-gray-800">
+                <h2 className="text-xl font-semibold text-white">
                   {member.name}
                 </h2>
-                <p className="text-md font-regular text-gray-800">
+                <p className="text-md font-regular text-white">
                   {member.description}
                 </p>
               </div>
