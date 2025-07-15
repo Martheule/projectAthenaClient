@@ -15,9 +15,11 @@ const Avatar = ({ name }) => {
   const randomBg = bgColors[randomIndex];
   return (
     <div
-      className={`w-10 h-10 aspect-square rounded-full bg-purple-500 text-white flex items-center justify-center text-lg font-regular shadow leading-none`}
+      className={`w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center`}
     >
-      {initial}
+      <span className="text-white text-lg font-regular shadow leading-none">
+        {initial}
+      </span>
     </div>
   );
 };

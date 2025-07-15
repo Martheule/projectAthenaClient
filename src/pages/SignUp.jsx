@@ -76,10 +76,7 @@ const SignUp = () => {
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
-            <form
-              action={submitAction}
-              className="fieldset text-white gap-8 p-4"
-            >
+            <form action={submitAction} className="fieldset gap-8 p-4">
               <input
                 type="text"
                 name="name"
