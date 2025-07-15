@@ -57,3 +57,4 @@ Utils
 | More Toast notification                | When important action happened, for instance, create event and so on, show toast notification                                                    | UX     | To-do  |
 | Responsiveness                         | How the interfaces look on mobile, still need further improvements                                                                               | UX/UI  | To-do  |
 | Show/hide tabs based on Auth condition | Would be nice to show/hide certain pages based on Auth condition, for instance, the "show event page " can be hidden, when user is not logged in | UX/UI  | To-do  |
+| Improve the user's location            | useing https://geocode.maps.co/ or similar API to transfer user's address into latitude and longitude                                            | To-do  |
