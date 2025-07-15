@@ -1,4 +1,3 @@
-// import UnicornScene from "unicornstudio-react";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";

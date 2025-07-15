@@ -1,3 +1,5 @@
+import UnicornScene from "unicornstudio-react";
+import { Link } from "react-router";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
@@ -16,25 +18,32 @@ const Hero = () => {
     }
   }, []);
   return isAuth ? (
-    <section className="relative h-screen flex flex-col justify-center px-8 text-white">
+    <section className="hero min-h-screen">
       <Toaster />
-      {/* Background Image */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=80')] bg-cover bg-center"></div>
+      {/* Background animation */}
+      <div className="absolute  w-full min-h-screen z-0">
+        <div className="absolute w-full min-h-screen border-b-66 border-[#ffffff] z-10"></div>
+        <UnicornScene
+          projectId="BXrF5jQzBrY1E01zQqzx"
+          className="absolute w-full min-h-screen z-0"
+        />
+      </div>
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
       {/* Main Content */}
-      <div className="relative z-10 max-w-xl text-center mx-auto">
-        <h1 className="text-5xl md:text-6xl font-bold mb-4">
-          Welcome, {user.name}
-        </h1>
-        <p className="text-lg mb-8">Check your events.</p>
-
-        <button className="bg-white text-black px-6 py-3 rounded-full hover:bg-gray-200 transition">
-          New event
-        </button>
-      </div>
-      <div className="w-full p-4 m-4  flex flex-col justify-end items-end">
-        <WeekDay />
+      <div className="relative z-10  max-w-7xl flex flex-col md:flex-row justify-between items-start text-white w-full">
+        <div className="text-left mx-auto">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">
+            Welcome, {user.name}
+          </h1>
+          <p className="text-lg mb-8">Check your events.</p>
+          <Link className="btn btn-ghost " to="/auth/addevent">
+            Create Event
+          </Link>
+        </div>
+        <div className="w-full p-4 m-4  flex flex-col justify-end items-end">
+          <WeekDay />
+        </div>
       </div>
     </section>
   ) : (

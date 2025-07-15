@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import UnicornScene from "unicornstudio-react";
 import { useAuth } from "../context/AuthContext";
 
 const SignUp = () => {
@@ -55,13 +54,6 @@ const SignUp = () => {
 
   return (
     <div className="hero bg-base-200 min-h-screen">
-      {/* <div className="absolute  w-full min-h-screen z-0">
-        <div className="absolute  w-full min-h-screen border-b-66 border-[#FFFFFF] z-10"></div>
-        <UnicornScene
-          projectId="sKE07ghh4yvYCU55xEYB"
-          className="absolute w-full min-h-screen z-0"
-        />
-      </div> */}
       {/* Background video */}
       <video
         autoPlay
@@ -70,7 +62,7 @@ const SignUp = () => {
         playsInline
         className="absolute inset-0 w-full min-h-screen object-cover opacity-100 z-0"
       >
-        <source src="/bg_video1.mp4" type="video/mp4" />
+        <source src="/bg_video2.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="hero-content flex-col mb-12 p-12 rounded-xl">
