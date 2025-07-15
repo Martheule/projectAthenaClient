@@ -2,14 +2,22 @@ import { useEffect, useState } from "react";
 import EventCard from "../components/EventCard";
 import { useAuth } from "../context/AuthContext";
 import SimplePageWrapper from "../components/PageWrapper";
+import { useNavigate } from "react-router";
 
 const ShowEventList = () => {
+  const navigate = useNavigate();
   const { isAuth } = useAuth();
   const [events, setEvents] = useState([]);
-  const baseUrl = "http://localhost:3001/api/events"; //Fetch from the seed.js
+  const baseUrl = "http://localhost:3001/api/events"; //Fetch from the Swagger API
 
+  useEffect(() => {
+    if (!isAuth) {
+      navigate("/login");
+    }
+  }, [isAuth]);
   //main fetch function
   useEffect(() => {
+    if (!isAuth) return;
     const controller = new AbortController();
 
     const fetchEvents = async () => {
@@ -33,7 +41,7 @@ const ShowEventList = () => {
     return () => {
       controller.abort();
     };
-  }, []);
+  }, [isAuth]);
 
   return (
     <SimplePageWrapper pageKey="showeventlist">
@@ -48,17 +56,6 @@ const ShowEventList = () => {
             <EventCard key={event.id} event={event} />
           ))}
         </div>
-        {/* {isAuth ? (
-        <div className="p-4 w-full flex flex-wrap gap-4 justify-center">
-          {events.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
-        </div>
-      ) : (
-        <p className="text-3xl mb-6">
-          You're not authenticated. Please login to see the event information.
-        </p>
-      )} */}
       </div>
     </SimplePageWrapper>
   );
