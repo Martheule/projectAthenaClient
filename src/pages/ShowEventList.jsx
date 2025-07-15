@@ -25,21 +25,31 @@ const ShowEventList = () => {
         const sorted = data.results.sort(
           (a, b) => new Date(a.date) - new Date(b.date)
         );
-        setEvents(sorted);
+        // setEvents(sorted);
+        setEvents(data.results);
       })
       .catch((err) => console.error("Failed to fetch events:", err));
   }, [isAuth]);
 
   return (
     <SimplePageWrapper pageKey="showeventlist">
-      <div className="w-full bg-blue-900">
-        <div className="w-full mx-auto md:w-2/3 text-center flex justify-center py-24">
-          <h1 className="text-5xl mb-6 text-white">Recommended Events</h1>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-          {events.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
+      <div
+        className="hero min-h-screen"
+        style={{
+          backgroundImage:
+            "url(https://images.unsplash.com/photo-1468413253725-0d5181091126?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
+        }}
+      >
+        <div className="hero-overlay"></div>
+        <div className="hero-content flex flex-col text-neutral-content text-center">
+          <div className="max-w-lg">
+            <h1 className="mb-5 text-5xl font-bold">Recommended Events</h1>
+          </div>
+          <div className="hero-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+            {events.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+          </div>
         </div>
       </div>
     </SimplePageWrapper>

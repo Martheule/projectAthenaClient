@@ -19,10 +19,10 @@ const WeekDay = () => {
   const weekNumber = getISOWeek(time); // 26
   return (
     <div className="absolute top-8 right-8 text-right z-10">
-      <p className="text-sm">Today is</p>
-      <p className="text-2xl font-bold">{weekday}</p>
-      <p className="text-xl">{datePart}. </p>
-      <p className="text-sm opacity-70">{time.toLocaleTimeString()}</p>
+      <p className="text-lg">Today is</p>
+      <p className="text-4xl font-bold">{weekday}</p>
+      <p className="text-2xl">{datePart}. </p>
+      <p className="text-xl opacity-70">{time.toLocaleTimeString()}</p>
     </div>
   );
 };

@@ -17,6 +17,7 @@ const Avatar = ({ name }) => {
     <div
       className={`w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center`}
     >
+      <div className="h-2.5"></div>
       <span className="text-white text-lg font-regular shadow leading-none">
         {initial}
       </span>

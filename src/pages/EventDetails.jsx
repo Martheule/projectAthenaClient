@@ -2,8 +2,10 @@ import { Link } from "react-router";
 import { useParams, useLocation } from "react-router";
 import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 const EventDetails = () => {
+  const navigate = useNavigate();
   let params = useParams();
   const {
     state: {
@@ -90,8 +92,8 @@ const EventDetails = () => {
             <div className="flex justify-between gap-5"></div>
           </div>
           <div className="flex items-end">
-            <button className="btn btn-primary">
-              <Link to="/">Close</Link>
+            <button onClick={() => navigate(-1)} className="btn btn-primary">
+              Close
             </button>
           </div>
         </div>
