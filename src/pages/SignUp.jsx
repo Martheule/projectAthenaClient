@@ -57,10 +57,10 @@ const SignUp = () => {
     <div className="hero bg-base-200 min-h-screen">
       <div className="absolute  w-full min-h-screen z-0">
         <div className="absolute  w-full min-h-screen border-b-66 border-[#FFFFFF] z-10"></div>
-        <UnicornScene
+        {/* <UnicornScene
           projectId="sKE07ghh4yvYCU55xEYB"
           className="absolute w-full min-h-screen z-0"
-        />
+        /> */}
       </div>
       <div className="hero-content flex-col mb-12 bg-slate-900/90 p-12 rounded-xl">
         <div className="text-center">
